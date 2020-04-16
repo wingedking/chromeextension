@@ -75,11 +75,9 @@ function addCSSToPage(){
         justify-content: space-around;
         align-content: flex-end;
         background: #121212;
-    }
-
-    label {
         color: yellow;
     }
+
     `
    const style = document.createElement('style');
    style.type = 'text/css';
@@ -105,17 +103,13 @@ window.addEventListener('load', function(){
     
 })
 
-{/* <div class=footer>
-<label> Background:<input class="backgroundColor" type="color" name="color1" value="#121212"></label>
-<label> Curly Brackets:<input class="bracketsColor" type="color" name="color2" value="#03DAC6"></label>
-<label> Keys:<input class="keysColor" type="color" name="color3" value="#FFFF00"</label>
-<label> Values:<input class="valuesColor" type="color" name="color4" value="#009df9"></label>
-<label> Colon: <input class="colonColor" type="color" name="color5" value="#CF6679"></label>
-</div> */}
-
 function changeColor(body){
 
-    body.innerHTML += `<div class="footer">
+    body.innerHTML += `<div id=backgroundColor></div>
+    <div id=bracketsColor></div>
+    <div id=keysColor></div>
+    <div id=valuesColor></div>
+    <div id=colonColor></div><div class="footer">
     <label> Background:<input class="backgroundColor" type="color" name="color1" value="#121212"></label>
     <label> Curly Brackets:<input class="bracketsColor" type="color" name="color2" value="#03DAC6"></label>
     <label> Keys:<input class="keysColor" type="color" name="color3" value="#FFFF00"></label>
@@ -125,19 +119,16 @@ function changeColor(body){
     
     
     backgroundColor = document.querySelector(".backgroundColor");
-    footerColor = document.querySelector(".footer");
-    console.log("************ here in changeColor *******************")
+    footer = document.querySelector(".footer");
     bracketsColor = document.querySelector(".bracketsColor");
     keysColor = document.querySelector(".keysColor");
     valuesColor = document.querySelector(".valuesColor");
     colonColor = document.querySelector(".colonColor");
 
     backgroundColor.addEventListener("input", function(){
-        console.log("background color entered")
         const body = document.querySelector("body");
-        console.log("background color", backgroundColor.value);
         body.style.backgroundColor = backgroundColor.value;
-        footerColor.style.backgroundColor = backgroundColor.value;
+        footer.style.backgroundColor = backgroundColor.value;
     });
     
     bracketsColor.addEventListener("input", function(){
@@ -147,19 +138,18 @@ function changeColor(body){
     });
     
     keysColor.addEventListener("input", function(){
-        console.log(keysColor.value)
         document.styleSheets[0].cssRules[1].style.color = keysColor.value; // for key name
+        footer.style.color = keysColor.value;
     });
     
     valuesColor.addEventListener("input", function(){
-        console.log(valuesColor.value)
         document.styleSheets[0].cssRules[2].style.color = valuesColor.value; // value
     });
-    
+
     colonColor.addEventListener("input", function(){
-        console.log(colonColor.value)
         document.styleSheets[0].cssRules[3].style.color = colonColor.value;
     });
+
 }
 
 
