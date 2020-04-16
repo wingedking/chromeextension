@@ -68,7 +68,7 @@ window.addEventListener('load', function(){
             const obj = JSON.parse(innerText);
             firstChild.innerHTML = "";
             addCSSToPage();
-            console.log('huh??');
+            console.log('branch');
             firstChild.innerHTML = htmlJSON(obj, 0);
             changeColor(body);
         })
@@ -180,7 +180,7 @@ function changeColor(body){
     backgroundColor.addEventListener("input", function(){
         const body = document.querySelector("body");
         body.style.backgroundColor = backgroundColor.value;
-        footerColor.style.backgroundColor = backgroundColor.value;
+        footer.style.backgroundColor = backgroundColor.value;
         chrome.storage.sync.set({'bagColor': `${backgroundColor.value}`});
     });
     
