@@ -32,8 +32,8 @@ function htmlObj(obj, nested){
         }
         else {
             const quoteIfString = typeof(obj[key]) === 'string' ? '"' : ''
-            html += `<span class="value">${quoteIfString}${obj[key]}${quoteIfString}</span>`
-            if(lastKey !== key) html += `<span class="comma">,</span>\n`;
+            html += `<span class="value">${quoteIfString}${obj[key]}${quoteIfString}</span>\n`
+            //if(lastKey !== key) html += `<span class="comma">,</span>\n`;
         }
     }
     html += `\n${tab.repeat(nested)}<span class="obj-curly">}</span>`
@@ -66,6 +66,7 @@ function addCSSToPage(){
    style.innerHTML = code;
    document.querySelector('head').appendChild(style);
 }
+
 window.addEventListener('load', function(){
     const body = document.querySelector('body');
     const classList = body.classList;
